@@ -1,16 +1,6 @@
 import { Request, Response } from 'express';
 import { customersService } from '../services/customersServices';
-
-const handleRequestError = (error: any, defaultMessage: string = "Erro na solicitação."): string => {
-  const errors = error?.response?.data?.errors;
-  let errorMessage = defaultMessage; // Mensagem padrão
-  
-  if (errors && errors.length > 0 && errors[0]?.description) {
-    errorMessage = errors[0].description;
-  }
-  
-  return errorMessage;
-};
+import { handleRequestError } from '../utils/errorHandler';
 
 const getAll = async (req: Request, res: Response) => {
     const token = req.headers.authorization || '';
