@@ -18,7 +18,7 @@ export const paymentsService = {
         return await httpRequest<any>({ url: `${process.env.ASAS_URL}/payments`, method: 'POST', token, data: postData });
     },
 
-    deletet: async ({ paymentId, token }: { paymentId: string, token: string }): Promise<any> => {
+    delete: async ({ paymentId, token }: { paymentId: string, token: string }): Promise<any> => {
         return await httpRequest<any>({ url: `${process.env.ASAS_URL}/payments/${paymentId}`, method: 'DELETE', token });
     },
 };
